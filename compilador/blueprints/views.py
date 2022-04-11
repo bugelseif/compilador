@@ -1,4 +1,3 @@
-from crypt import methods
 from urllib import request
 from flask import render_template
 

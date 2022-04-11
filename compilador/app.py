@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import request
 from flask_bootstrap import Bootstrap
 
 from compilador.blueprints import views
