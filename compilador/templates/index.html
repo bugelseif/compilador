@@ -1,11 +1,26 @@
 <!--{% extends "bootstrap/base.html" %}
 {% block content %}
+<script src = "lib/jquery-3.6.0.min.js"></script>
+
+
+<!--Script de teste-->
+<script>
+    //Faz um post para /test e loga o retorno
+    function postTest(){
+        $.post("/test", function(data){
+            console.log(data);
+        });
+    }
+
+
+</script>
 <div>
     <h2>{{ config.get('TITLE') }}</h2>
     <form action="{{ url_for('test') }}" method="get">
         <input type="text">
         <input type="submit" name="test">
     </form>
+    <button onclick="postTest()">Log com post</button>
     <p> resultado sobrescrito</p>
 </div>
 
