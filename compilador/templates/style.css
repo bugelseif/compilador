@@ -1,0 +1,25 @@
+html{
+    background-color: rgba(24, 22, 22, 0.459);
+}
+#run{
+        width: 250px;
+        text-align: center;
+        
+        
+        
+        font-size: 18px; 
+}
+#footer{
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.192);
+    color: white;
+    font-size: large;
+}
+strong{
+   color: white;
+}
+a{
+    color: blue;
+}
