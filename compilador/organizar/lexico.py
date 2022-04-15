@@ -11,7 +11,7 @@ def lexica(codigo):
     while i < len(codigo):
         if codigo[i] == "\n":
             line = line + 1
-            lineindex = i+1>=len(codigo)if 0 else i+1
+            lineindex = i+1 >= len(codigo)if 0 else i+1
         # Estado inicial
         if estado == 0:
             if codigo[i].isalpha():
@@ -110,7 +110,7 @@ def lexica(codigo):
                 estado = 42
                 i += 1
                 print(f' erro {codigo[i]}, estado {estado}')
-            tokenstart = i            
+            tokenstart = i
         # Caso de qualquer letra
         elif estado == 1:
             if codigo[i].isalnum() and codigo[i] != ' ':
@@ -126,7 +126,7 @@ def lexica(codigo):
                 t = v.upper()
             else:
                 t = f"ID{tokenindex}"
-                tokenindex+=1
+                tokenindex += 1
             tokens.append((t, v))
             estado = 0
         # Estado para numerico
@@ -191,7 +191,7 @@ def lexica(codigo):
                 i += 1
         # Estado final de comentarios
         elif estado == 12:
-            estado = 0 
+            estado = 0
             i += 1
         # Estado final para barra
         elif estado == 13:
@@ -304,35 +304,27 @@ def lexica(codigo):
         elif estado == 34:
             tokens.append((",", codigo[i-1]))
             estado = 0
-           
         elif estado == 35:
             tokens.append((";", codigo[i-1]))
             estado = 0
-            
         elif estado == 36:
             tokens.append(("(", codigo[i-1]))
             estado = 0
-            
         elif estado == 37:
             tokens.append((")", codigo[i-1]))
             estado = 0
-           
         elif estado == 38:
             tokens.append(("[", codigo[i-1]))
             estado = 0
-           
         elif estado == 39:
             tokens.append(("]", codigo[i-1]))
             estado = 0
-           
         elif estado == 40:
             tokens.append(("{", codigo[i-1]))
             estado = 0
-           
         elif estado == 41:
             tokens.append(("}", codigo[i-1]))
             estado = 0
-            
         elif estado == 42:
             # Procura a proxima quebra de linha para obter a
             # linha completa do erro
