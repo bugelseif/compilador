@@ -1,13 +1,24 @@
+from re import I
+
+
 def lexica(codigo):
     estado = 0
     i = 0
     line = 0
     # Lista de token
     tokens = []
+    identifiers = []
     reservedwords = []
     tokenstart = 0
     lineindex = 0
     tokenindex = 0
+    # Encontra um indice de um identificador de nome
+    def find(value):
+        for i, dic in enumerate(identifiers):
+            if dic['name'] == value:
+                return i
+        return -1
+    
     while i < len(codigo):
         if codigo[i] == "\n":
             line = line + 1
@@ -125,8 +136,16 @@ def lexica(codigo):
             if v in reservedwords:
                 t = v.upper()
             else:
-                t = f"ID{tokenindex}"
-                tokenindex += 1
+                # procura o indice do meu id na lista
+                idindex = find(v)
+                # Caso haja encontrado o usa
+                if idindex>=0:
+                    t = f'ID:{idindex}'
+                else:
+                    t = f'ID:{tokenindex}'
+                    identifiers.append({'id':tokenindex,'name':v})
+                    tokenindex += 1
+               
             tokens.append((t, v))
             estado = 0
         # Estado para numerico
@@ -342,6 +361,12 @@ def lexica(codigo):
             # Retorna a mensagem de erro
             return f"Erro de compilação na linha {line}\n erro:{errorline}"
     return tokens
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
