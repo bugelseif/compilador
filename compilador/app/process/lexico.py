@@ -5,10 +5,18 @@ def lexica(codigo):
     line = 0
     # Lista de token
     tokens = []
+    identifiers = []
     reservedwords = []
     tokenstart = 0
     lineindex = 0
     tokenindex = 0
+    # Encontra um indice de um identificador de nome
+    def find(value):
+        for i, dic in enumerate(identifiers):
+            if dic['name'] == value:
+                return i
+        return -1
+    
     while i < len(codigo):
         if codigo[i] == "\n":
             line = line + 1
@@ -103,7 +111,7 @@ def lexica(codigo):
                 estado = 41
                 print(f' chave {codigo[i]}, estado {estado}')
                 i += 1
-            elif codigo[i] == ' ' or codigo[i] =='\n' or codigo[i] =='\r' or codigo[i] =='\t': # ajustar
+            elif codigo[i] in (' ','\n','\r', '\t'):
                 estado = 0
                 print(f' vazio {codigo[i]}, estado {estado}')
                 i += 1
@@ -126,8 +134,16 @@ def lexica(codigo):
             if v in reservedwords:
                 t = v.upper()
             else:
-                t = f"ID{tokenindex}"
-                tokenindex += 1
+                # procura o indice do meu id na lista
+                idindex = find(v)
+                # Caso haja encontrado o usa
+                if idindex>=0:
+                    t = f'ID:{idindex}'
+                else:
+                    t = f'ID:{tokenindex}'
+                    identifiers.append({'id':tokenindex,'name':v})
+                    tokenindex += 1
+               
             tokens.append((t, v))
             estado = 0
         # Estado para numerico
@@ -345,7 +361,25 @@ def lexica(codigo):
     return tokens
 
 
+
+
+
+
+
+
 if __name__ == '__main__':
-    print(lexica('''$'''))
+    print(lexica('''
+void main(){
+    int x, y;
+    y = 3;
+    x = y + 10;
+    println (z);
+
+    while(banana){
+        x = true;
+    }
+}
+    '''))
 
     # print(lexica('tes\n \n |a\n'))
+>>>>>>> 7706fcd6afdc7743f79768ae025da4b267a33252:compilador/organizar/lexico.py
