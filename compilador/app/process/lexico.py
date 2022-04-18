@@ -382,4 +382,3 @@ void main(){
     '''))
 
     # print(lexica('tes\n \n |a\n'))
->>>>>>> 7706fcd6afdc7743f79768ae025da4b267a33252:compilador/organizar/lexico.py
