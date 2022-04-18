@@ -1,4 +1,3 @@
-from re import I
 
 
 def lexica(codigo):
@@ -376,6 +375,10 @@ void main(){
     y = 3;
     x = y + 10;
     println (z);
+
+    while(banana){
+        x = true;
+    }
 }
     '''))
 
