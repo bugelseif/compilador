@@ -1,0 +1,28 @@
+<!-- base com navbar -->
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - compilador</title>
+        {% else %}
+        <title>compilador</title>
+        {% endif %}
+
+        <div>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('entradas') }}">Entradas</a>
+        </div>
+        <hr>
+        <!-- retorna mensagem da funcão flash() -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+        
+    </body>
+</html>

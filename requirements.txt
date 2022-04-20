@@ -1,0 +1,13 @@
+flask
+python-dotenv
+Flask-Bootstrap
+flask-wtf
+
+
+
+
+
+
+# O ficheiro .flaskenv com todas as variaveis. No caso de estar num ambiente de desenvolvimento, pode ser interessante criar um python env (correr o comando abaixo dentro do diretório raiz do projeto): python -m venv env
+
+# Isto criará um diretório env onde ficarão todos os pacotes instalados via pip. Agora só falta instalar os pacotes: python -m pip install -r requirements.txt
