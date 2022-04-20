@@ -1,0 +1,128 @@
+<!--{% extends "bootstrap/base.html" %}
+{% block content %}
+<script src = "lib/jquery-3.6.0.min.js"></script>
+
+
+<!--Script de teste-->
+<script>
+    //Faz um post para /test e loga o retorno
+    function postTest(){
+        $.post("/test", function(data){
+            console.log(data);
+        });
+    }
+
+
+</script>
+<div>
+    <h2>{{ config.get('TITLE') }}</h2>
+    <form action="{{ url_for('test') }}" method="get">
+        <input type="text">
+        <input type="submit" name="test">
+    </form>
+    <button onclick="postTest()">Log com post</button>
+    <p> resultado sobrescrito</p>
+</div>
+
+{% endblock %}
+-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/css/all.css"></script>
+    <!--<link rel="shortcut icon" href="image/icons/favicon.ico" type="image/x-icon">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <img src="img/code-1767454-1502524.png" width="60" height="60">
+            </a>
+          </div>
+          
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item">
+                  Home
+                </a>
+          
+                <a class="navbar-item">
+                  Documentation
+                </a>               
+              </div>
+              
+            <div class="navbar-end ">
+                <div class="navbar-item">
+                  <div class="buttons">                    
+                    <a id= "run" class="button is-danger is-outlined is-rounded is-large ">
+                      RUN
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+    <section class="section">
+      <div class="conteiner">
+        <div class="columns">
+          <div class="column">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">
+                    Input:
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <div class="field">
+                    <div class="control">
+                      <textarea class="textarea is-large" rows="7" placeholder="Digite aqui seu código."></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">
+                    Output:
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <div class="field">
+                    <div class="control">
+                      <textarea class="textarea is-large" rows="7" disabled></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    
+      <footer class="footer" id="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Compilador</strong> by <a href="https://jgthms.com">Vanderluiz</a>, <a href="https://jgthms.com">Bruna</a> and <a href="https://jgthms.com">José</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+          </p>
+        </div>
+      </footer>
+    
+</body>
+</html>
