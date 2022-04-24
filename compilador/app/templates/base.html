@@ -7,6 +7,40 @@
         <title>compilador</title>
         {% endif %}
 
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                color: #bcbd8b;
+                background-color: #373d20;
+            }
+
+            a{
+                color: #eff1ed;
+            }
+
+            textarea{
+                background-color: #bcbd8b;
+            }
+            .tabela{
+                background-color: #bcbd8b;
+                width: 50%;
+            }
+            .coluna{
+                border: 1px solid #373d20;
+                width: 100%;
+                color: #373d20;
+                padding: 10px;
+            }
+            div{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+
+        </style>
+
+    </head>
+    <body>
         <div>
             <a href="{{ url_for('index') }}">Home</a>
             <a href="{{ url_for('entradas') }}">Entradas</a>
@@ -23,6 +57,5 @@
         {% endif %}
         {% endwith %}
         {% block content %}{% endblock %}
-        
     </body>
 </html>

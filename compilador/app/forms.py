@@ -3,5 +3,5 @@ from wtforms import SubmitField, TextAreaField
 from wtforms.validators import DataRequired
 
 class LoginForm(FlaskForm):
-    entrada = TextAreaField('entrada', validators=[DataRequired()])
+    entrada = TextAreaField('Entrada', validators=[DataRequired()])
     submit = SubmitField('submit')

@@ -2,7 +2,16 @@
 
 {% block content %}
     <h1>Retorno:</h1>
-    <p>
-        {{ processo }}
-    </p>
+    <section class="tabela">
+        {% for processo in processos %}
+        <div>
+            <span class="coluna">
+                {{ processo[0] }}
+            </span>
+            <span class="coluna">
+                {{ processo[1] }}
+            </span>
+        </div>
+        {% endfor %}
+    </section>
 {% endblock %}
