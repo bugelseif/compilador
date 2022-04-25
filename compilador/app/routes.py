@@ -14,7 +14,7 @@ def entradas():
     form = LoginForm()
     if form.validate_on_submit():
         flash(f''' Enviado {form.entrada.data}''')
-        processo = lexica(form.entrada.data)
-        print(processo)
-        return render_template('processed.html', processo=processo)
+        processos = lexica(form.entrada.data)
+        print(processos)
+        return render_template('processed.html', processos=processos)
     return render_template('entradas.html', form=form)

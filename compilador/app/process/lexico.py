@@ -385,7 +385,7 @@ def lexica(codigo):
 
             # Retorna a mensagem de erro
             return f"Erro de compilação na linha {line}\n erro:{errorline}"
-    return tokens, symbols
+    return tokens
 
 
 if __name__ == '__main__':

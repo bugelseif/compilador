@@ -6,9 +6,9 @@
         {{ form.hidden_tag() }}
         <p>
             {{ form.entrada.label }}<br>
-            {{ form.entrada(size=32) }}<br>
+            {{ form.entrada(rows='30', cols='100') }}<br>
             {% for error in form.entrada.errors %}
-            <span style="color: red;">[{{ error }}]</span>
+            <span style="color: rgb(224, 119, 39);">[{{ error }}]</span>
             {% endfor %}
         </p>
         <p>{{ form.submit() }}</p>
