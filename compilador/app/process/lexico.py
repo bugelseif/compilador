@@ -44,12 +44,16 @@ def lexica(codigo):
                 i += 1
             elif codigo[i] == '+':
                 estado = 14
+                i += 1
             elif codigo[i] == '-':
                 estado = 15
+                i += 1
             elif codigo[i] == '*':
                 estado = 16
+                i += 1
             elif codigo[i] == '%':
                 estado = 17
+                i += 1
             elif codigo[i] == '=':
                 estado = 18
                 i += 1
@@ -167,7 +171,7 @@ def lexica(codigo):
         elif estado == 8:
             if codigo[i] == '"':
                 estado = 9
-                i += 1
+                # i += 1
             elif codigo[i] == '\n':
                 estado = 42
                 i += 1
@@ -210,25 +214,23 @@ def lexica(codigo):
         elif estado == 14:
             tokens.append(("+", "+"))
             estado = 0
-            i += 1
 
         # Estado final -
         elif estado == 15:
             tokens.append(("-", "-"))
             estado = 0
-            i += 1
 
         # Estado final *
         elif estado == 16:
             tokens.append(("*", "*"))
             estado = 0
-            i += 1
+            
 
         # Estado final %
         elif estado == 17:
             tokens.append(("%", "%"))
             estado = 0
-            i += 1
+            
 
         # Estado do comparação ou atribuição
         elif estado == 18:
@@ -283,7 +285,6 @@ def lexica(codigo):
         elif estado == 26:
             tokens.append(("COMP",">"))
             estado = 0
-            i += 1
 
         # Estado menor ou comparação <=
         elif estado == 27:
@@ -302,7 +303,6 @@ def lexica(codigo):
         elif estado == 29:
             tokens.append(("COMP", "<"))
             estado = 0
-            i += 1
 
         # Estado operador ou
         elif estado == 30:
@@ -324,7 +324,7 @@ def lexica(codigo):
 
         # Estado final operador e
         elif estado == 33:
-            tokens.append(("&&", codigo[tokenstart-1:i]))
+            tokens.append(("&&", "&&"))
             estado = 0
             i += 1
 
@@ -389,7 +389,4 @@ def lexica(codigo):
 
 
 if __name__ == '__main__':
-    print(lexica('''main void(){
-        x=1;
-        t=21;
-        }'''))
+    print(lexica('''[a(a)a{a}a]'''))
