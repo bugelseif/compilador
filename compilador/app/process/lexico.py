@@ -171,7 +171,6 @@ def lexica(codigo):
         elif estado == 8:
             if codigo[i] == '"':
                 estado = 9
-                # i += 1
             elif codigo[i] == '\n':
                 estado = 42
                 i += 1
@@ -181,7 +180,7 @@ def lexica(codigo):
 
         # Estado final para literal
         elif estado == 9:
-            tokens.append(("TEXTO", codigo[tokenstart-1:i]))
+            tokens.append(("TEXTO", codigo[tokenstart-1:i+1]))
             estado = 0
             i += 1
 
@@ -389,4 +388,5 @@ def lexica(codigo):
 
 
 if __name__ == '__main__':
-    print(lexica('''[a(a)a{a}a]'''))
+    print(lexica('''"[a(a)a{a}a]""mains"
+    '''))
