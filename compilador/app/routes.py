@@ -15,6 +15,7 @@ def entradas():
     if form.validate_on_submit():
         flash(f''' Enviado {form.entrada.data}''')
         processos = lexica(form.entrada.data)
+        tipo = True if type(processos) == list else False
         print(processos)
-        return render_template('processed.html', processos=processos)
+        return render_template('processed.html', processos=processos, tipo=tipo)
     return render_template('entradas.html', form=form)
